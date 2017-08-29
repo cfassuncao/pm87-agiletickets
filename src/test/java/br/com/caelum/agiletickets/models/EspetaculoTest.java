@@ -3,7 +3,13 @@ package br.com.caelum.agiletickets.models;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class EspetaculoTest {
 
@@ -79,6 +85,34 @@ public class EspetaculoTest {
 		sessao.setIngressosReservados(quantidade);
 
 		return sessao;
+	}
+	
+	@Test
+	public void testaSessaoDataIniIgualDataFimDiaria() {
+		Espetaculo meuEspetaculo = new Espetaculo();
+		List<Sessao> criaSessoes = meuEspetaculo.criaSessoes(new LocalDate(), new LocalDate(), new LocalTime(), Periodicidade.DIARIA);
+		Assert.assertEquals(1, criaSessoes.size());
+	}
+	
+	@Test
+	public void testaSessaoDataIniMenorDataFimDiaria() {
+		Espetaculo meuEspetaculo = new Espetaculo();
+		List<Sessao> criaSessoes = meuEspetaculo.criaSessoes(new LocalDate(), new LocalDate().plusDays(1), new LocalTime(), Periodicidade.DIARIA);
+		Assert.assertEquals(2, criaSessoes.size());
+	}
+	
+	@Test
+	public void testaSessaoDataIniMaiorDataFimDiaria() {
+		Espetaculo meuEspetaculo = new Espetaculo();
+		List<Sessao> criaSessoes = meuEspetaculo.criaSessoes(new LocalDate().plusDays(1), new LocalDate(), new LocalTime(), Periodicidade.DIARIA);
+		Assert.assertEquals(0, criaSessoes.size());
+	}
+	
+	@Test
+	public void testaSessaoDataIniMenorDataFimSemanal() {
+		Espetaculo meuEspetaculo = new Espetaculo();
+		List<Sessao> criaSessoes = meuEspetaculo.criaSessoes(new LocalDate(), new LocalDate().plusDays(7), new LocalTime(), Periodicidade.SEMANAL);
+		Assert.assertEquals(2, criaSessoes.size());
 	}
 	
 }

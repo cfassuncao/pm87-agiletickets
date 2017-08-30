@@ -112,7 +112,7 @@ public class EspetaculoTest {
 	public void testaSessaoDataIniMenorDataFimSemanal() {
 		Espetaculo meuEspetaculo = new Espetaculo();
 		List<Sessao> criaSessoes = meuEspetaculo.criaSessoes(new LocalDate(), new LocalDate().plusDays(7), new LocalTime(), Periodicidade.SEMANAL);
-		Assert.assertEquals(1, criaSessoes.size());
+		Assert.assertEquals(2, criaSessoes.size());
 	}
 	
 }

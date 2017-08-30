@@ -1,0 +1,44 @@
+Anotacoes Curso Agil
+
+28]08]2017
+
+Git -clientes geram as versoes, nao o server
+
+
+SVN -> Git :
+checkout ->clone
+add->add
+commit-> add commit local+push
+update-> pull
+status -> status
+
+git add .   -> adiciona todos arquivos, novos e ja versionados
+git commit -am 'comentario' ->  todos que foram alterados
+git revert <hash>    ->   remove as alteracoes feitas por este commit
+
+GitHub - servidor remoto
+Bitbucket - menos utilizado
+
+fork e pull request-> comandos do github
+
+JUnit
+colocar no pacote test paralelo ao src
+
+@Test
+assertThat -> colecoes
+
+30/08
+
+gradle -> maven em json - para android
+ant+ivy = maven
+
+integracao continua = pull e push toda hora
+jenkins - servidor de integracao continua
+	faz github push
+
+
+
+
+
+
+
